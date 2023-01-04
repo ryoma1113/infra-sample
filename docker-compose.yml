@@ -36,10 +36,6 @@ services:
     ports:
       - 80:81
       - '443:443'
-      # - target: 80
-      #   published: ${WEB_PUBLISHED_PORT:-81}
-      #   protocol: tcp
-      #   mode: host
     volumes:
       - type: bind
         source: ./good-for-job
@@ -65,11 +61,3 @@ services:
       - MYSQL_USER=${DB_USERNAME:-phper}
       - MYSQL_PASSWORD=${DB_PASSWORD:-secret}
       - MYSQL_ROOT_PASSWORD=${DB_PASSWORD:-secret}
-
-  # mailhog:
-  #   image: mailhog/mailhog
-  #   ports:
-  #     - target: 8025
-  #       published: ${MAILHOG_PUBLISHED_PORT:-8025}
-  #       protocol: tcp
-  #       mode: host
