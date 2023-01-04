@@ -25,7 +25,7 @@ RUN apt-get update && \
   composer config -g process-timeout 3600 && \
   composer config -g repos.packagist composer https://packagist.org
 
-RUN npm i npm@6.12.1 -y
+RUN npm i npm5 -y
 RUN npm install webpack && chmod -R 777 /root/
 
 COPY ./infra/docker/php/php-fpm.d/zzz-www.conf /usr/local/etc/php-fpm.d/zzz-www.conf
