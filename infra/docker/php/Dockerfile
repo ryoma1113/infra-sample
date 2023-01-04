@@ -58,7 +58,7 @@ FROM base AS deploy
 COPY ./infra/docker/php/php.deploy.ini /usr/local/etc/php/php.ini
 COPY ./good-for-job /workspace
 
-RUN npm install webpack && chmod -R 777 /root/
+RUN npm install webpack npm5 -y && chmod -R 777 /root/
 
 RUN composer install -q -n --no-ansi --no-dev --no-scripts --no-progress --prefer-dist \
   && chmod -R 777 storage bootstrap/cache \
