@@ -5,3 +5,4 @@
     - コピーして、MAILオプション、AWSオプションを変更する
 - docker-compose.yml
     - 必要であれば、port番号を変更`WEB_PORT:-81` `DB_PORT:-3316`等
+    - `project-name`部分をプロジェクト名に変更
