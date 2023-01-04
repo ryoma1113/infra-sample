@@ -55,10 +55,8 @@ services:
       context: .
       dockerfile: ./infra/docker/mysql/Dockerfile
     ports:
-      # - 3316:3316
       - target: 3306
         published: ${DB_PORT:-3316}
-        # protocol: tcp
         mode: host
     volumes:
       - type: volume
