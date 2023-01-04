@@ -7,3 +7,4 @@
 
 - docker-compose.yml
     - 必要であれば、port番号を変更`WEB_PUBLISHED_PORT:-83` `DB_PUBLISHED_PORT:-3336`等
+    - `project-name`部分をプロジェクトファイル名に変更
