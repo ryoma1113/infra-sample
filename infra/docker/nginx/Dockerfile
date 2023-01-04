@@ -1,20 +1,15 @@
-FROM node:16-alpine as node
-FROM nginx:1.20-alpine
-LABEL maintainer="ucan-lab <yes@u-can.pro>"
-SHELL ["/bin/ash", "-oeux", "pipefail", "-c"]
+FROM nginx:1.22
+
+WORKDIR /workspace
 
 ENV TZ=UTC
 
-RUN apk update && \
-  apk add --update --no-cache --virtual=.build-dependencies g++
-
-# # node command
-# COPY --from=node /usr/local/bin /usr/local/bin
-# # npm command
-# COPY --from=node /usr/local/lib /usr/local/lib
-# # yarn command
-# COPY --from=node /opt /opt
-# nginx config file
 COPY ./infra/docker/nginx/*.conf /etc/nginx/conf.d/
 
-WORKDIR /work/medical-record-k1
+# 証明書ファイルをコンテナにコピー
+COPY ./infra/docker/nginx/localhost.pem /etc/ssl/certs/ssl-cert-snakeoil.pem
+COPY ./infra/docker/nginx/localhost-key.pem /etc/ssl/private/ssl-cert-snakeoil.key
+
+# RUN apt update
+# RUN apt install nodejs npm
+# RUN chmod -R 777 /root/
